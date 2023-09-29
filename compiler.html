@@ -1,0 +1,137 @@
+<DOCTYPE html>
+
+<title>javaboi</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+   <header>
+       <h2 class="logo">javaboi</h2>
+           <nav class="navigation"> <a href="#">Home</a>
+                 <a href="competency.php">competency</a>                
+                 <a href="topic.php">levels<a>
+                 <a href="login.html" class="btnlogout">LOG OUT</a>  
+
+            </nav>
+  </header>
+<html>
+<head>
+    <title>Java Code Execution</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #C7F3C0;
+            min-height: 100vh; /* Set a minimum height of the viewport height */
+            margin: 0; /* Remove default margin */
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        #output-container {
+            flex-grow: 1; /* Allow the output-container to grow and fill available space */
+            overflow-y: auto; /* Add vertical scrollbar when content overflows */
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            width: 2000px;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 50px;
+            border: 2px solid #ccc;
+            background-color: #f7f7f7;
+            margin-top: 150;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .output-box, .error-box {
+            width: 80%;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 2px solid #ccc;
+            background-color: #f7f7f7;
+        }
+
+        .output-title, .error-title {
+            font-size: 20px;
+            color: #333;
+        }
+
+        .output-content {
+            color: green;
+        }
+
+        .error-content {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    
+    <form id="code-form">
+        <label for="code">Java Code:</label><br>
+        <textarea id="code" name="code" rows="10" cols="40" required></textarea><br><br>
+
+        <label for="input_data">Input Data (Optional):</label><br>
+        <textarea id="input_data" name="input_data" rows="5" cols="40"></textarea><br><br>
+
+        <input type="button" value="Run Code" onclick="executeCode()">
+    </form>
+
+    <div id="output-box" class="output-box"></div>
+
+    <script>
+        function executeCode() {
+            var code = document.getElementById("code").value;
+            var input_data = document.getElementById("input_data").value;
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "execute.php", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var response = xhr.responseText;
+                    document.getElementById("output-box").innerHTML = response;
+                }
+            };
+
+            xhr.send("code=" + encodeURIComponent(code) + "&input_data=" + encodeURIComponent(input_data));
+        }
+    </script>
+</body>
+</html>
+
+</html>

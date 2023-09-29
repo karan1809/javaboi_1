@@ -1,0 +1,46 @@
+<DOCTYPE html> 
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" <meta name="viewport" content="width=device-width,initial-scale=1.0"> 
+<title>javaboi</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+   <header>
+       <h2 class="logo">javaboi</h2>
+           <nav class="navigation"> <a href="#">Home</a>
+                 <a href="#">About</a>                
+                 <a href="#">Contact</a>
+                 <button class="btnlogin-popup">Login</button>  
+
+            </nav>
+  </header>
+
+  <div class="wrapper">
+    <div class="form_box Login">
+        <h2>Login</h2>
+        <form action="login_process.php" method="post">
+            <div class="input-box">
+                <span class="icon"></span>
+                <input type="text" id="username" name="username" required>
+                <lable for="username">Username</lable>
+            </div>
+            <div class="input-box">
+                <span class="icon"></span>
+                <input type="password" id="password" name="password" required>
+                <lable for="password">password</lable>
+            </div>
+            <div class="forgot-password">
+              <a herf="#">forgot password?</a>
+            </div>
+            <button type="submit" class="btn">LOGIN</button>
+            <div class="Login_register">
+                <p>don't have an account?<a href="signup.html">Sign-up</a></p>
+            </div>
+        </form>
+    </div>   
+  </div>
+</body>
